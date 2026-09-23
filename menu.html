@@ -420,6 +420,34 @@ const menuItems = [
 
 ];
 
+    /* =========================================
+    PRELOAD ALL AR IMAGES
+    ========================================= */
+
+    function preloadARImages() {
+
+        menuItems.forEach(item => {
+
+            if (item.arImage) {
+
+                const img = new Image();
+
+                img.src = item.arImage;
+
+                // Browser ko image priority batane ke liye
+                img.loading = "eager";
+
+            }
+
+        });
+
+    }
+
+
+    /* Start preloading immediately */
+    preloadARImages();
+
+
 
 const grid = document.getElementById("menuGrid");
 
@@ -559,7 +587,7 @@ function renderMenu(category = "All") {
                                 justify-center
                             "
                         >
-                            <a href="ar.html?img=${item.arImage}">View on desk</a>
+                            <a href="ar.html?img=${encodeURIComponent(item.arImage || '')}" class="px-3 py-2 rounded-full bg-forest text-white text-xs whitespace-nowrap inline-flex items-center justify-center">View on desk</a>
                         </span>
 
                     </div>
