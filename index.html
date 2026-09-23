@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Royal Bite</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: "#18211E",
+                        forest: "#123F32",
+                        forest2: "#1B5544",
+                        cream: "#F7F4EC",
+                        sand: "#EAE4D7",
+                        gold: "#B99452",
+                        muted: "#737A76"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: #101715;
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        .display-font {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .script-font {
+            font-family: "Brush Script MT", "Segoe Script", cursive;
+        }
+
+        .hero {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0,0,0,.72) 0%,
+                    rgba(0,0,0,.28) 42%,
+                    rgba(0,0,0,.82) 100%
+                ),
+                url("https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1600&q=90")
+                center center / cover no-repeat;
+        }
+
+        .glass {
+            background: rgba(255,255,255,.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,.12);
+        }
+
+        .fade-up {
+            animation: fadeUp .7s ease both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .button-hover {
+            transition: .25s ease;
+        }
+
+        .button-hover:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                background-position: 62% center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="min-h-[100dvh] flex items-center justify-center p-0 sm:p-4 md:p-6">
+
+    <!--
+        FIRST PAGE
+        Full screen height
+    -->
+
+    <main class="hero relative w-full h-[100dvh] sm:h-[calc(100dvh-32px)] md:h-[calc(100dvh-48px)] max-w-[1500px] overflow-hidden sm:rounded-[28px] shadow-2xl">
+
+        <!-- Header -->
+        <header class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-5 py-6 sm:px-8 md:px-12 lg:px-16">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-gold/70 flex items-center justify-center text-gold text-2xl">
+                    ♕
+                </div>
+
+                <div class="text-white">
+                    <div class="display-font text-lg sm:text-xl font-semibold">
+                        The Royal Bite
+                    </div>
+
+                    <div class="text-[7px] sm:text-[8px] tracking-[3px] text-white/70">
+                        GOOD FOOD • GREAT VIBES
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Main Content -->
+        <div class="relative z-10 h-full flex flex-col justify-end items-center text-center px-5 pb-7 sm:pb-10 md:pb-12 lg:pb-14">
+
+            <!-- Desktop / Mobile responsive content width -->
+            <div class="w-full max-w-[1050px]">
+
+                <!-- Heading -->
+                <div class="fade-up">
+
+                    <h1
+                        class="
+                            display-font
+                            text-white
+                            text-[42px]
+                            leading-[1.03]
+                            sm:text-5xl
+                            md:text-6xl
+                            lg:text-7xl
+                            xl:text-8xl
+                        "
+                    >
+                        Good Food
+                        <br>
+                        Brings People
+                    </h1>
+
+                    <div
+                        class="
+                            script-font
+                            text-gold
+                            text-5xl
+                            sm:text-6xl
+                            md:text-7xl
+                            lg:text-8xl
+                            -mt-1
+                        "
+                    >
+                        Together
+                    </div>
+
+                </div>
+
+
+                <!-- Small features -->
+                <div
+                    class="
+                        mt-4
+                        sm:mt-5
+                        flex
+                        justify-center
+                        items-center
+                        flex-wrap
+                        gap-x-4
+                        gap-y-2
+                        text-white/90
+                        text-xs
+                        sm:text-sm
+                    "
+                >
+
+                    <span>Fresh ingredients</span>
+
+                    <span class="text-gold">•</span>
+
+                    <span>Great taste</span>
+
+                    <span class="text-gold">•</span>
+
+                    <span>Always fresh</span>
+
+                </div>
+
+
+                <!-- Buttons -->
+                <div
+                    class="
+                        mt-7
+                        sm:mt-8
+                        md:mt-10
+                        flex flex-col
+                        gap-3
+                        sm:gap-4
+                        max-w-[700px]
+                        mx-auto
+                    "
+                >
+
+                    <!-- Menu -->
+                    <a
+                        href="menu.html"
+                        class="
+                            button-hover
+                            bg-forest2
+                            hover:bg-forest
+                            text-white
+                            rounded-2xl
+                            min-h-[64px]
+                            sm:min-h-[72px]
+                            md:min-h-[80px]
+                            flex
+                            items-center
+                            justify-between
+                            px-5
+                            sm:px-7
+                            md:px-9
+                            shadow-xl
+                        "
+                    >
+
+                        <div class="flex items-center gap-3">
+
+                            <span class="text-xl sm:text-2xl">
+                                🍴
+                            </span>
+
+                            <span
+                                class="
+                                    display-font
+                                    text-lg
+                                    sm:text-xl
+                                    md:text-2xl
+                                "
+                            >
+                                Menu
+                            </span>
+
+                        </div>
+
+                        <span class="text-xl">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <!-- Feedback -->
+                    <a
+                        href="feedback.html"
+                        class="
+                            button-hover
+                            bg-cream
+                            hover:bg-white
+                            text-ink
+                            rounded-2xl
+                            min-h-[64px]
+                            sm:min-h-[72px]
+                            md:min-h-[80px]
+                            flex
+                            items-center
+                            justify-between
+                            px-5
+                            sm:px-7
+                            md:px-9
+                            shadow-xl
+                        "
+                    >
+
+                        <div class="flex items-center gap-3">
+
+                            <span class="text-xl sm:text-2xl text-gold">
+                                ☆
+                            </span>
+
+                            <span
+                                class="
+                                    display-font
+                                    text-lg
+                                    sm:text-xl
+                                    md:text-2xl
+                                "
+                            >
+                                Feedback
+                            </span>
+
+                        </div>
+
+                        <span class="text-xl">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Social -->
+                <div
+                    class="
+                        mt-5
+                        sm:mt-6
+                        text-white
+                    "
+                >
+
+                    <div class="flex justify-center gap-5 text-lg">
+
+                        <a href="#" class="hover:text-gold transition">
+                            ◎
+                        </a>
+
+                        <a href="#" class="hover:text-gold transition">
+                            f
+                        </a>
+
+                        <a href="#" class="hover:text-gold transition">
+                            ♪
+                        </a>
+
+                        <a href="#" class="hover:text-gold transition">
+                            ◉
+                        </a>
+
+                    </div>
+
+                    <p
+                        class="
+                            text-[10px]
+                            sm:text-xs
+                            text-white/60
+                            mt-2
+                        "
+                    >
+                        Follow us for more updates
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

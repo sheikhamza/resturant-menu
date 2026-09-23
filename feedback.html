@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Royal Bite — Feedback</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: "#18211E",
+                        forest: "#123F32",
+                        forest2: "#1B5544",
+                        cream: "#F7F4EC",
+                        sand: "#EAE4D7",
+                        gold: "#B99452",
+                        muted: "#737A76"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #101715;
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        .display-font {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .page {
+            min-height: 100dvh;
+        }
+
+        .shell {
+            width: min(100%, 1100px);
+            margin: auto;
+        }
+
+        .star {
+            transition: .15s ease;
+        }
+
+        .star:hover {
+            transform: scale(1.15);
+        }
+
+        .star.active {
+            color: #B99452;
+        }
+
+        .tag {
+            transition: .2s ease;
+        }
+
+        .tag.active {
+            background: #123F32;
+            color: white;
+            border-color: #123F32;
+        }
+
+        textarea,
+        input {
+            outline: none;
+        }
+
+        textarea:focus,
+        input:focus {
+            border-color: #B99452;
+            box-shadow: 0 0 0 3px rgba(185,148,82,.1);
+        }
+
+        .success {
+            animation: successIn .3s ease;
+        }
+
+        @keyframes successIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="page bg-cream">
+
+    <!-- Header -->
+
+    <header
+        class="
+            border-b
+            border-sand
+            bg-cream
+        "
+    >
+
+        <div
+            class="
+                shell
+                px-5
+                sm:px-8
+                md:px-10
+                lg:px-12
+                py-4
+                flex
+                items-center
+                justify-between
+            "
+        >
+
+            <a
+                href="index.html"
+                class="
+                    flex
+                    items-center
+                    gap-3
+                "
+            >
+
+                <span class="text-gold text-3xl">
+                    ♕
+                </span>
+
+                <div>
+
+                    <div
+                        class="
+                            display-font
+                            text-lg
+                            font-semibold
+                        "
+                    >
+                        The Royal Bite
+                    </div>
+
+                    <div
+                        class="
+                            text-[7px]
+                            tracking-[3px]
+                            text-muted
+                        "
+                    >
+                        GOOD FOOD • GREAT VIBES
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="index.html"
+                class="
+                    w-10
+                    h-10
+                    rounded-full
+                    hover:bg-sand
+                    flex
+                    items-center
+                    justify-center
+                    text-xl
+                "
+            >
+                ←
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main
+        class="
+            shell
+            px-4
+            sm:px-6
+            md:px-8
+            lg:px-12
+            py-7
+            md:py-12
+        "
+    >
+
+        <div
+            class="
+                grid
+                lg:grid-cols-[.8fr_1.2fr]
+                gap-6
+                md:gap-8
+            "
+        >
+
+            <!-- Left Intro -->
+
+            <section
+                class="
+                    bg-white
+                    rounded-3xl
+                    p-6
+                    md:p-8
+                    lg:p-10
+                    flex
+                    flex-col
+                    justify-center
+                "
+            >
+
+                <div
+                    class="
+                        text-gold
+                        text-5xl
+                        mb-5
+                    "
+                >
+                    ☆
+                </div>
+
+                <h1
+                    class="
+                        display-font
+                        text-4xl
+                        md:text-5xl
+                        leading-tight
+                    "
+                >
+                    What Our
+                    <br>
+                    Guests Say
+                </h1>
+
+                <p
+                    class="
+                        text-muted
+                        mt-5
+                        leading-7
+                    "
+                >
+                    Your feedback helps us serve you better.
+                    Thank you for being a part of our journey!
+                </p>
+
+
+                <div
+                    class="
+                        mt-8
+                        p-5
+                        bg-cream
+                        rounded-2xl
+                    "
+                >
+
+                    <div class="flex items-center gap-2">
+
+                        <span
+                            class="
+                                display-font
+                                text-4xl
+                            "
+                        >
+                            ★
+                        </span>
+
+                        <div>
+
+                            <div class="font-semibold">
+                                We value your opinion
+                            </div>
+
+                            <p
+                                class="
+                                    text-xs
+                                    text-muted
+                                    mt-1
+                                "
+                            >
+                                Tell us what you loved and
+                                where we can improve.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Feedback Form -->
+
+            <section
+                class="
+                    bg-white
+                    rounded-3xl
+                    p-5
+                    sm:p-7
+                    md:p-9
+                    lg:p-10
+                "
+            >
+
+                <div class="mb-7">
+
+                    <h2
+                        class="
+                            display-font
+                            text-3xl
+                            md:text-4xl
+                        "
+                    >
+                        Share Your Feedback
+                    </h2>
+
+                    <p
+                        class="
+                            text-muted
+                            text-sm
+                            mt-2
+                        "
+                    >
+                        Tell us about your experience.
+                        Your opinion matters!
+                    </p>
+
+                </div>
+
+
+                <form id="feedbackForm">
+
+                    <!-- FormSubmit settings -->
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New Restaurant Feedback — The Royal Bite"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_captcha"
+                        value="false"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_template"
+                        value="table"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="restaurant"
+                        value="The Royal Bite"
+                    >
+
+
+                    <!-- Rating -->
+
+                    <div>
+
+                        <label class="font-medium text-sm">
+                            How was your experience?
+                        </label>
+
+                        <div
+                            id="stars"
+                            class="
+                                flex
+                                gap-2
+                                mt-4
+                            "
+                        >
+
+                            <button
+                                type="button"
+                                class="star text-4xl text-[#D8D1C3]"
+                                data-rating="1"
+                            >
+                                ☆
+                            </button>
+
+                            <button
+                                type="button"
+                                class="star text-4xl text-[#D8D1C3]"
+                                data-rating="2"
+                            >
+                                ☆
+                            </button>
+
+                            <button
+                                type="button"
+                                class="star text-4xl text-[#D8D1C3]"
+                                data-rating="3"
+                            >
+                                ☆
+                            </button>
+
+                            <button
+                                type="button"
+                                class="star text-4xl text-[#D8D1C3]"
+                                data-rating="4"
+                            >
+                                ☆
+                            </button>
+
+                            <button
+                                type="button"
+                                class="star text-4xl text-[#D8D1C3]"
+                                data-rating="5"
+                            >
+                                ☆
+                            </button>
+
+                        </div>
+
+                        <p
+                            id="ratingText"
+                            class="
+                                text-xs
+                                text-muted
+                                mt-1
+                            "
+                        >
+                            Tap to rate
+                        </p>
+
+                        <input
+                            type="hidden"
+                            name="rating"
+                            id="ratingInput"
+                        >
+
+                    </div>
+
+
+                    <!-- Tags -->
+
+                    <div class="mt-7">
+
+                        <label class="font-medium text-sm">
+                            What did you enjoy?
+                        </label>
+
+                        <div
+                            id="tags"
+                            class="
+                                flex
+                                flex-wrap
+                                gap-2
+                                mt-3
+                            "
+                        >
+
+                            <button
+                                type="button"
+                                class="
+                                    tag
+                                    border
+                                    border-sand
+                                    rounded-full
+                                    px-4
+                                    py-2
+                                    text-xs
+                                "
+                                data-tag="Food quality"
+                            >
+                                Food quality
+                            </button>
+
+                            <button
+                                type="button"
+                                class="
+                                    tag
+                                    border
+                                    border-sand
+                                    rounded-full
+                                    px-4
+                                    py-2
+                                    text-xs
+                                "
+                                data-tag="Taste"
+                            >
+                                Taste
+                            </button>
+
+                            <button
+                                type="button"
+                                class="
+                                    tag
+                                    border
+                                    border-sand
+                                    rounded-full
+                                    px-4
+                                    py-2
+                                    text-xs
+                                "
+                                data-tag="Service"
+                            >
+                                Service
+                            </button>
+
+                            <button
+                                type="button"
+                                class="
+                                    tag
+                                    border
+                                    border-sand
+                                    rounded-full
+                                    px-4
+                                    py-2
+                                    text-xs
+                                "
+                                data-tag="Ambience"
+                            >
+                                Ambience
+                            </button>
+
+                            <button
+                                type="button"
+                                class="
+                                    tag
+                                    border
+                                    border-sand
+                                    rounded-full
+                                    px-4
+                                    py-2
+                                    text-xs
+                                "
+                                data-tag="Value"
+                            >
+                                Value
+                            </button>
+
+                        </div>
+
+                        <input
+                            type="hidden"
+                            name="highlights"
+                            id="highlightsInput"
+                        >
+
+                    </div>
+
+
+                    <!-- Feedback -->
+
+                    <div class="mt-7">
+
+                        <label
+                            for="feedback"
+                            class="font-medium text-sm"
+                        >
+                            Your feedback
+                        </label>
+
+                        <textarea
+                            id="feedback"
+                            name="feedback"
+                            required
+                            rows="6"
+                            placeholder="Write your review..."
+                            class="
+                                mt-3
+                                w-full
+                                border
+                                border-sand
+                                rounded-xl
+                                px-4
+                                py-4
+                                resize-none
+                                text-sm
+                            "
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Name / Email -->
+
+                    <div
+                        class="
+                            grid
+                            sm:grid-cols-2
+                            gap-3
+                            mt-3
+                        "
+                    >
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name (optional)"
+                            class="
+                                w-full
+                                border
+                                border-sand
+                                rounded-xl
+                                px-4
+                                py-3.5
+                                text-sm
+                            "
+                        >
+
+                        <input
+                            type="email"
+                            name="_replyto"
+                            placeholder="Your Email (optional)"
+                            class="
+                                w-full
+                                border
+                                border-sand
+                                rounded-xl
+                                px-4
+                                py-3.5
+                                text-sm
+                            "
+                        >
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        id="submitButton"
+                        type="submit"
+                        class="
+                            mt-5
+                            w-full
+                            bg-forest
+                            hover:bg-forest2
+                            text-white
+                            rounded-xl
+                            py-4
+                            font-medium
+                            transition
+                            flex
+                            items-center
+                            justify-center
+                            gap-2
+                        "
+                    >
+
+                        <span>
+                            ✈
+                        </span>
+
+                        Submit Feedback
+
+                    </button>
+
+
+                    <!-- Status -->
+
+                    <div
+                        id="status"
+                        class="
+                            hidden
+                            mt-4
+                            p-4
+                            rounded-xl
+                            text-sm
+                            text-center
+                        "
+                    ></div>
+
+
+                    <p
+                        class="
+                            text-center
+                            text-xs
+                            text-muted
+                            mt-5
+                        "
+                    >
+                        ♡ Thank you for your support!
+                    </p>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+let selectedRating = 0;
+
+const stars =
+    document.querySelectorAll(".star");
+
+const ratingInput =
+    document.getElementById("ratingInput");
+
+const ratingText =
+    document.getElementById("ratingText");
+
+
+const ratingLabels = {
+
+    1: "Not great",
+
+    2: "Could be better",
+
+    3: "Good",
+
+    4: "Very good",
+
+    5: "Excellent!"
+
+};
+
+
+stars.forEach(star => {
+
+    star.addEventListener("click", () => {
+
+        selectedRating =
+            Number(star.dataset.rating);
+
+        ratingInput.value =
+            selectedRating;
+
+        ratingText.textContent =
+            ratingLabels[selectedRating];
+
+
+        stars.forEach(item => {
+
+            const rating =
+                Number(item.dataset.rating);
+
+            item.textContent =
+                rating <= selectedRating
+                    ? "★"
+                    : "☆";
+
+            item.classList.toggle(
+                "active",
+                rating <= selectedRating
+            );
+
+        });
+
+    });
+
+});
+
+
+const tags =
+    document.querySelectorAll(".tag");
+
+const highlightsInput =
+    document.getElementById("highlightsInput");
+
+let selectedTags = [];
+
+
+tags.forEach(tag => {
+
+    tag.addEventListener("click", () => {
+
+        const value =
+            tag.dataset.tag;
+
+        if (selectedTags.includes(value)) {
+
+            selectedTags =
+                selectedTags.filter(
+                    item => item !== value
+                );
+
+            tag.classList.remove("active");
+
+        } else {
+
+            selectedTags.push(value);
+
+            tag.classList.add("active");
+
+        }
+
+        highlightsInput.value =
+            selectedTags.join(", ");
+
+    });
+
+});
+
+
+const form =
+    document.getElementById("feedbackForm");
+
+const button =
+    document.getElementById("submitButton");
+
+const status =
+    document.getElementById("status");
+
+
+form.addEventListener("submit", async event => {
+
+    event.preventDefault();
+
+
+    if (selectedRating === 0) {
+
+        showStatus(
+            "Please select a star rating first.",
+            false
+        );
+
+        return;
+    }
+
+
+    button.disabled = true;
+
+    button.innerHTML =
+        "Sending Feedback...";
+
+
+    const formData =
+        new FormData(form);
+
+    const data =
+        Object.fromEntries(formData.entries());
+
+
+    try {
+
+        const response =
+            await fetch(
+                "https://formsubmit.co/ajax/hamzabussiness24@gmail.com",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json",
+
+                        "Accept":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify(data)
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+            throw new Error(
+                result.message ||
+                "Something went wrong."
+            );
+        }
+
+
+        form.reset();
+
+        selectedRating = 0;
+        selectedTags = [];
+
+        stars.forEach(star => {
+
+            star.textContent = "☆";
+
+            star.classList.remove("active");
+
+        });
+
+
+        tags.forEach(tag => {
+
+            tag.classList.remove("active");
+
+        });
+
+
+        ratingText.textContent =
+            "Tap to rate";
+
+
+        highlightsInput.value = "";
+
+
+        showStatus(
+            "Thank you! Your feedback has been sent successfully.",
+            true
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showStatus(
+            "Could not send feedback. Please try again.",
+            false
+        );
+
+    }
+
+
+    button.disabled = false;
+
+    button.innerHTML =
+        "<span>✈</span> Submit Feedback";
+
+});
+
+
+function showStatus(message, success) {
+
+    status.textContent = message;
+
+    status.classList.remove(
+        "hidden",
+        "bg-green-50",
+        "text-green-700",
+        "bg-red-50",
+        "text-red-700"
+    );
+
+
+    if (success) {
+
+        status.classList.add(
+            "bg-green-50",
+            "text-green-700",
+            "success"
+        );
+
+    } else {
+
+        status.classList.add(
+            "bg-red-50",
+            "text-red-700"
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

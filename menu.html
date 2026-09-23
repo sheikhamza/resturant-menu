@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Royal Bite — Menu</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: "#18211E",
+                        forest: "#123F32",
+                        forest2: "#1B5544",
+                        cream: "#F7F4EC",
+                        sand: "#EAE4D7",
+                        gold: "#B99452",
+                        muted: "#737A76"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #101715;
+            color: #18211E;
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        .display-font {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .page {
+            min-height: 100dvh;
+        }
+
+        .menu-shell {
+            width: min(100%, 1400px);
+            margin: auto;
+        }
+
+        .hero-menu {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.86),
+                    rgba(0,0,0,.35)
+                ),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=90")
+                center / cover;
+        }
+
+        .category {
+            transition: .2s ease;
+            white-space: nowrap;
+        }
+
+        .category:hover {
+            transform: translateY(-1px);
+        }
+
+        .category.active {
+            background: #123F32;
+            color: white;
+        }
+
+        .food-card {
+            transition: .25s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .food-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-backdrop {
+            background: rgba(0,0,0,.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal {
+            animation: modalIn .25s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media(max-width: 640px) {
+
+            .menu-shell {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="page bg-cream">
+
+    <!-- Header -->
+
+    <header
+        class="
+            bg-cream
+            border-b
+            border-sand
+            sticky
+            top-0
+            z-40
+        "
+    >
+
+        <div
+            class="
+                menu-shell
+                px-5
+                sm:px-8
+                lg:px-12
+                py-4
+                flex
+                items-center
+                justify-between
+            "
+        >
+
+            <a
+                href="index.html"
+                class="
+                    flex
+                    items-center
+                    gap-3
+                "
+            >
+
+                <span
+                    class="
+                        text-gold
+                        text-3xl
+                    "
+                >
+                    ♕
+                </span>
+
+                <div>
+
+                    <div
+                        class="
+                            display-font
+                            text-lg
+                            font-semibold
+                        "
+                    >
+                        The Royal Bite
+                    </div>
+
+                    <div
+                        class="
+                            text-[7px]
+                            tracking-[3px]
+                            text-muted
+                        "
+                    >
+                        GOOD FOOD • GREAT VIBES
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="index.html"
+                class="
+                    w-10
+                    h-10
+                    rounded-full
+                    flex
+                    items-center
+                    justify-center
+                    hover:bg-sand
+                    text-xl
+                "
+            >
+                ←
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main
+        class="
+            menu-shell
+            px-4
+            sm:px-6
+            md:px-8
+            lg:px-12
+            py-5
+            md:py-8
+        "
+    >
+
+        <!-- Hero -->
+
+        <section
+            class="
+                hero-menu
+                rounded-2xl
+                md:rounded-3xl
+                min-h-[190px]
+                md:min-h-[260px]
+                lg:min-h-[300px]
+                p-6
+                md:p-10
+                lg:p-14
+                flex
+                items-center
+            "
+        >
+
+            <div class="max-w-[650px] text-white">
+
+                <p
+                    class="
+                        text-gold
+                        uppercase
+                        tracking-[2px]
+                        text-xs
+                        md:text-sm
+                        mb-3
+                    "
+                >
+                    Our Menu
+                </p>
+
+                <h1
+                    class="
+                        display-font
+                        text-4xl
+                        md:text-5xl
+                        lg:text-6xl
+                        leading-[.95]
+                    "
+                >
+                    Fresh Flavors
+                    <br>
+                    Great Choices
+                </h1>
+
+                <p
+                    class="
+                        mt-4
+                        text-sm
+                        md:text-base
+                        text-white/80
+                        max-w-[500px]
+                    "
+                >
+                    Explore our delicious menu crafted
+                    with the finest ingredients.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Categories -->
+
+        <div
+            id="categories"
+            class="
+                flex
+                gap-2
+                overflow-x-auto
+                py-5
+                scrollbar-hide
+            "
+        >
+
+            <button
+                class="category active px-5 py-2 rounded-full bg-white text-sm"
+                data-category="All"
+            >
+                All
+            </button>
+
+            <button
+                class="category px-5 py-2 rounded-full bg-white text-sm"
+                data-category="Burgers"
+            >
+                Burgers
+            </button>
+
+            <button
+                class="category px-5 py-2 rounded-full bg-white text-sm"
+                data-category="Pizza"
+            >
+                Pizza
+            </button>
+
+            <button
+                class="category px-5 py-2 rounded-full bg-white text-sm"
+                data-category="Pasta"
+            >
+                Pasta
+            </button>
+
+            <button
+                class="category px-5 py-2 rounded-full bg-white text-sm"
+                data-category="Sides"
+            >
+                Sides
+            </button>
+
+            <button
+                class="category px-5 py-2 rounded-full bg-white text-sm"
+                data-category="Drinks"
+            >
+                Drinks
+            </button>
+
+            <button
+                class="category px-5 py-2 rounded-full bg-white text-sm"
+                data-category="Dessert"
+            >
+                Dessert
+            </button>
+
+        </div>
+
+
+        <!-- Menu Grid -->
+
+        <section
+            id="menuGrid"
+            class="
+                grid
+                grid-cols-1
+                md:grid-cols-2
+                xl:grid-cols-3
+                gap-4
+                md:gap-5
+            "
+        ></section>
+
+    </main>
+
+</div>
+
+
+
+<script>
+
+const menuItems = [
+
+    {
+        category: "Burgers",
+        name: "Classic Beef Burger",
+        price: "Rs. 650",
+        description:
+            "Juicy beef patty, fresh lettuce, tomato and our signature house sauce, served with crispy fries.",
+        image:
+            "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85",
+        badge: "Signature"
+    },
+
+    {
+        category: "Burgers",
+        name: "Chicken Zinger Burger",
+        price: "Rs. 580",
+        description:
+            "Crispy golden chicken, crunchy lettuce, creamy mayo and a soft toasted brioche bun.",
+        image:
+            "https://images.unsplash.com/photo-1615297928064-24977384d0a0?auto=format&fit=crop&w=800&q=85"
+    },
+
+    {
+        category: "Pizza",
+        name: "BBQ Chicken Pizza",
+        price: "Rs. 950",
+        description:
+            "Grilled chicken, mozzarella, smoky BBQ sauce and herbs baked over our fresh dough.",
+        image:
+            "https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=85",
+        badge: "Popular"
+    },
+
+    {
+        category: "Pasta",
+        name: "Creamy Alfredo Pasta",
+        price: "Rs. 720",
+        description:
+            "Silky cream sauce, parmesan, herbs and perfectly cooked pasta for a rich, comforting bite.",
+        image:
+            "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85"
+    },
+
+    {
+        category: "Sides",
+        name: "Crispy French Fries",
+        price: "Rs. 300",
+        description:
+            "Golden, crispy fries seasoned just right. The perfect companion to any main.",
+        image:
+            "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=85"
+    },
+
+    {
+        category: "Drinks",
+        name: "Classic Mint Lemonade",
+        price: "Rs. 280",
+        description:
+            "Fresh lemon, mint and chilled soda for a bright and refreshing finish.",
+        image:
+            "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=85"
+    },
+
+    {
+        category: "Dessert",
+        name: "Lotus Cheesecake",
+        price: "Rs. 450",
+        description:
+            "Creamy cheesecake topped with smooth Lotus spread and a delicate biscuit crumb.",
+        image:
+            "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=85",
+        badge: "Must Try"
+    }
+
+];
+
+
+const grid = document.getElementById("menuGrid");
+
+const categories = document.querySelectorAll(".category");
+
+
+function renderMenu(category = "All") {
+
+    const filtered =
+        category === "All"
+            ? menuItems
+            : menuItems.filter(item => item.category === category);
+
+
+    grid.innerHTML = filtered.map((item, index) => `
+
+        <article
+            class="
+                food-card
+                bg-white
+                rounded-2xl
+                p-3
+                cursor-pointer
+                shadow-sm
+                hover:shadow-lg
+            ">
+
+            <div
+                class="
+                    flex
+                    gap-4
+                    md:gap-5
+                    items-center
+                "
+            >
+
+                <div
+                    class="
+                        w-24
+                        h-24
+                        md:w-32
+                        md:h-32
+                        lg:w-36
+                        lg:h-36
+                        flex-shrink-0
+                        rounded-xl
+                        overflow-hidden
+                    "
+                >
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                        class="food-image"
+                    >
+
+                </div>
+
+
+                <div class="flex-1 min-w-0 py-1">
+
+                    <div class="flex justify-between gap-3">
+
+                        <h3
+                            class="
+                                font-semibold
+                                text-base
+                                md:text-lg
+                                leading-tight
+                            "
+                        >
+                            ${item.name}
+                        </h3>
+
+                        ${
+                            item.badge
+                            ?
+                            `
+                                <span
+                                    class="
+                                        hidden
+                                        sm:block
+                                        text-[9px]
+                                        bg-[#F2E8D2]
+                                        text-gold
+                                        px-2
+                                        py-1
+                                        rounded-full
+                                        whitespace-nowrap
+                                    "
+                                >
+                                    ${item.badge}
+                                </span>
+                            `
+                            :
+                            ""
+                        }
+
+                    </div>
+
+
+                    <p
+                        class="
+                            text-muted
+                            text-xs
+                            md:text-sm
+                            mt-2
+                            leading-5
+                            line-clamp-2
+                        "
+                    >
+                        ${item.description}
+                    </p>
+
+
+                    <div
+                        class="
+                            flex
+                            items-center
+                            justify-between
+                            mt-3
+                        "
+                    >
+
+                        <strong class="text-sm md:text-base">
+                            ${item.price}
+                        </strong>
+
+                        <span
+                            class="
+                            px-2
+                                rounded-full
+                                bg-forest
+                                text-white
+                                flex
+                                items-center
+                                justify-center
+                            "
+                        >
+                            <a href="ar.html?img=${item.image}">View on desk</a>
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    `).join("");
+
+}
+
+
+categories.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        categories.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        renderMenu(button.dataset.category);
+
+    });
+
+});
+
+renderMenu();
+
+</script>
+
+</body>
+</html>
