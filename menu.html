@@ -352,7 +352,7 @@ const menuItems = [
             "Juicy beef patty, fresh lettuce, tomato and our signature house sauce, served with crispy fries.",
         image:
             "./images/b-1.png",
-        arImage: "./images/bp-1.jpg",
+        arImage: "./images/bp-1.png",
         badge: "Signature"
     },
 
@@ -363,7 +363,7 @@ const menuItems = [
         description:
             "Crispy golden chicken, crunchy lettuce, creamy mayo and a soft toasted brioche bun.",
         image: "./images/meatza.jpg",
-        arImage: "./images/pmeatza.jpg",
+        arImage: "./images/pmeatza.png",
     },
 
     {
@@ -587,7 +587,7 @@ function renderMenu(category = "All") {
                                 justify-center
                             "
                         >
-                            <a href="ar.html?img=${encodeURIComponent(item.image || '')}" class="px-3 py-2 rounded-full bg-forest text-white text-xs whitespace-nowrap inline-flex items-center justify-center">View on desk</a>
+                            <a href="ar.html?img=${encodeURIComponent(item.arImage || '')}" class="px-3 py-2 rounded-full bg-forest text-white text-xs whitespace-nowrap inline-flex items-center justify-center">View on desk</a>
                         </span>
 
                     </div>
